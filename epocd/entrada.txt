@@ -1,0 +1,8 @@
+add ax,2
+sub bx,6
+mul ax,2
+div bx,3
+add cx,ax
+sub cx,bx
+mul cx,bx
+div cx,ax
