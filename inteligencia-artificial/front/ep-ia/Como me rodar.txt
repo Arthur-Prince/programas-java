@@ -1,0 +1,9 @@
+Baixar o nodeJS
+https://nodejs.org/en/download/
+
+Codígos para rodar o projeto angular 
+npm install -g @angular/cli
+
+npm install
+
+npm start

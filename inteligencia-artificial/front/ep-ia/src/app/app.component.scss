@@ -1,0 +1,143 @@
+.cabeçalho {
+    h1 {
+        padding-top: 30px;
+        margin-bottom: 0;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 26px;
+        color: #333333;
+    }
+    height: 111px;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    img {
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        width: 248px;
+        height: 62px;
+    }
+}
+
+.buttons-div {
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+.list,
+.mat-list,
+.mat-list-,
+.itens {
+    margin-top: 0;
+}
+.list-itens {
+    margin-right: 20px;
+}
+
+.itens {
+    margin: 20px;
+}
+
+.cicle {
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+    margin: 15px;
+    font-size: 18px;
+    p {
+        padding-top: 10px;
+    }
+    color: white;
+    background: #3f51b5;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.card-arq {
+    width: 100%;
+    margin: 30px;
+    margin-top: 20px;
+}
+button {
+    margin-right: 20px;
+    width: 100%;
+    height: 54px;
+}
+
+.buttons-list {
+    margin-top: 138px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.histograma-card {
+    min-height: 452px;
+}
+.card-grafico {
+    margin: 20px 30px;
+    margin-left: 45px;
+    width: 100%;
+}
+.matriz {
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+.square-matriz {
+    border: 1px solid #3f51b5;
+    height: 50px;
+    p {
+        margin: 15px;
+        color: black;
+        font-size: 30px;
+    }
+}
+h2 {
+    margin-left: 30px;
+    margin-top: 15px;
+}
+.linha-1 {
+    color: #02ca3b;
+}
+.linha-2 {
+    color: #ff0000;
+}
+.linha-3 {
+    color: #9b51e0;
+}
+.linha-4 {
+    color: #333333;
+}
+.linha-5 {
+    color: #00ffd1;
+}
+.linha-6 {
+    color: #0500ff;
+}
+.linha-7 {
+    color: #ffd556;
+}
+.linha-8 {
+    color: #f2994a;
+}
+
+.select {
+    // border: 2px solid #bdbdbd;
+    // box-sizing: border-box;
+    // border-radius: 10px;
+    // background: none;
+    font-size: 18px;
+    width: 90%;
+}
+
+.button-post {
+    margin-top: 20px;
+}
+
+.input-final {
+    margin-top: 0;
+    width: 100% !important;
+    font-size: 24px !important;
+}

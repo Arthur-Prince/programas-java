@@ -1,0 +1,275 @@
+<div class="cabeçalho">
+  <h1 class="d-flex justify-content-center">IA- EP Semestral</h1>
+  <img class=""
+    src="https://lh3.googleusercontent.com/zMVb8OdZbJRCUJ_D2N-ahJX03aKMG3Q9dMq2ZuJQ4ihaCSy-K66wx7bGT68bZN5BYkmoI9l_4D-Y40nuzbuq0Ryaaw_Mr59yIO-0U0Pn-5wddgJS4JY0Ng3Kdj9tPm_YZ6k__GVVaQO6Id7c9T4raX-v_wVTIjZkIytBAYSTunORUkkYYhgynQEN7ng7FLk7xBuhhFt2HHm0BRFRRRrCUexzSwiY7nlsO1E6tHf9wGlcWQwKEj60evgaPxUIdrlDU7tAGYYrr8BTrAndkTpMishRDLIuNcDGzmCNu7HHPTgB2v6u7mZTSW_Xuns-q8yJuFVipN0D4JOtgQcSr7fO7TlrAC2O7shp9_OGfVhnvDshUFRs1BKBNVv-1XdNsrzVJLaWA36jtQcXVvme8stNtfV9RcV1GkEafqfcTCmGTXMr31TKSmp8FmK7VdIYkrHygj_EovUgtibepJIHH6UBw8lZ53eDKKesmfwhpdliHyJGORFkXTioxejRNBl6EgA_92Imr3u4FwFMtKDHvPoqa1qXVPzV87_RCD78ryeHIFfkL5LJ_ZdYGD29OIuuGJ4viBXqNDSyuBatcjEYS0ib4buE9Ml4Y8m-cay-ZB-zHVgUA0Q4MJIyBLbZBtF-xAJ6AWZLtmsJBQGM7g6WyiL5HBHuQqTIrVpm4fe4ZQ1UFnfvVVJ2rRiCZrRcPEuHWWXAkBrKQhnw5Z4LPxrDJC9pYLLJ=w772-h192-no?authuser=0"
+    alt="">
+</div>
+<div class="row">
+  <div class="col-10">
+    <div class=" justify-content-center align-items-center  card-arq">
+      <div class="row buttons-div">
+        <div class="col-2">
+          <button mat-raised-button class="button-action" (click)="postMudarProblema('AND')"
+            color="primary">And</button>
+        </div>
+        <div class="col-2">
+          <button mat-raised-button class="button-action" (click)="postMudarProblema('OR')" color="primary">Or</button>
+        </div>
+        <div class="col-2">
+          <button mat-raised-button class="button-action" (click)="postMudarProblema('XOR')"
+            color="primary">Xor</button>
+        </div>
+        <div class="col-2">
+          <button mat-raised-button class="button-action" (click)="MostrarImg('caracteres')"
+            color="primary">Caracteres</button>
+        </div>
+      </div>
+      <mat-card class="histograma-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Arquitetura</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <a *ngIf="caracteres"><img src="https://i.ibb.co/nzNBVCp/suruba-5.png" alt="suruba-5"></a>
+          <a *ngIf="and || or"><img src="https://i.ibb.co/tQtPYMk/43.png" alt="43"></a>
+          <a *ngIf="xor"><img src="https://i.ibb.co/VCTMdYQ/12-1.png" alt="12-1"></a>
+          <div *ngIf="and || or" class="row">
+            <h2>Pesos:</h2>
+          </div>
+          <div class="row" *ngIf="(and || or) && pesosMostrar">
+            <div class="col-3">
+              <mat-list class="itens">
+                <mat-list-item class="linha-1 list-itens">{{this.pesos[0][0][0]}}</mat-list-item>
+                <mat-list-item class="linha-2 list-itens">{{this.pesos[0][1][0]}}</mat-list-item>
+                <mat-list-item class="linha-3 list-itens">{{this.pesos[0][2][0]}}</mat-list-item>
+
+              </mat-list>
+            </div>
+            <div class="col-3">
+              <mat-list class="itens">
+                <mat-list-item class="linha-1 list-itens">{{this.pesos[0][0][1]}}</mat-list-item>
+                <mat-list-item class="linha-2 list-itens">{{this.pesos[0][1][1]}}</mat-list-item>
+                <mat-list-item class="linha-3 list-itens">{{this.pesos[0][2][1]}}</mat-list-item>
+
+              </mat-list>
+            </div>
+          </div>
+          <div *ngIf="xor" class="row">
+            <h2>Pesos:</h2>
+          </div>
+          <div class="row" *ngIf="xor && pesosMostrar">
+            <div class="col-3">
+              <mat-list class="itens">
+                <mat-list-item class="linha-1 list-itens">{{this.pesos[0][0][0]}}</mat-list-item>
+                <mat-list-item class="linha-2 list-itens">{{this.pesos[0][1][0]}}</mat-list-item>
+                <mat-list-item class="linha-3 list-itens">{{this.pesos[0][2][0]}}</mat-list-item>
+                <mat-list-item class="linha-5 list-itens">{{this.pesos[1][0][0]}}</mat-list-item>
+                <mat-list-item class="linha-6 list-itens">{{this.pesos[1][1][0]}}</mat-list-item>
+                <mat-list-item class="linha-7 list-itens">{{this.pesos[1][2][0]}}</mat-list-item>
+                <mat-list-item class="linha-8 list-itens">{{this.pesos[1][3][0]}}</mat-list-item>
+
+              </mat-list>
+            </div>
+            <div class="col-3">
+              <mat-list class="itens">
+                <mat-list-item class="linha-1 list-itens">{{this.pesos[0][0][1]}}</mat-list-item>
+                <mat-list-item class="linha-2 list-itens">{{this.pesos[0][1][1]}}</mat-list-item>
+                <mat-list-item class="linha-3 list-itens">{{this.pesos[0][2][1]}}</mat-list-item>
+                <mat-list-item class="linha-5 list-itens">{{this.pesos[1][0][1]}}</mat-list-item>
+                <mat-list-item class="linha-6 list-itens">{{this.pesos[1][1][1]}}</mat-list-item>
+                <mat-list-item class="linha-7 list-itens">{{this.pesos[1][2][1]}}</mat-list-item>
+                <mat-list-item class="linha-8 list-itens">{{this.pesos[1][3][1]}}</mat-list-item>
+              </mat-list>
+            </div>
+            <div class="col-3">
+              <mat-list class="itens">
+                <mat-list-item class="linha-1 list-itens">{{this.pesos[0][0][2]}}</mat-list-item>
+                <mat-list-item class="linha-2 list-itens">{{this.pesos[0][1][2]}}</mat-list-item>
+                <mat-list-item class="linha-3 list-itens">{{this.pesos[0][2][2]}}</mat-list-item>
+              </mat-list>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div class="col-2 buttons-list">
+    <div class="row justify-content-center align-items-center">
+      <div *ngIf="step1" class="col-11">
+        <button mat-raised-button class="button-action" style="margin-bottom: 30px;" (click)="treinar1()"
+          color="primary">Treinar 1</button>
+      </div>
+      <div *ngIf="step2" class="col-11">
+        <button mat-raised-button class="button-action" (click)="treinar()" color="primary">Treinar</button>
+      </div>
+      <div *ngIf="caracteres" class="col-11">
+        <select #buscaDescricao class="select" (change)="trocarPesos(buscaDescricao.value)">
+          <option class='option' *ngFor='let option of dropDownData' [value]="option">{{option}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class=" justify-content-center align-items-center  card-grafico">
+    <mat-card class="histograma-card ">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Gráfico Acertos / Matriz de Confusão </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngIf="!matriz2" class="matriz">
+          <div class="row ">
+            <div class="col-1 square-matriz">
+              <p>
+              </p>
+            </div>
+            <div class="col-1 square-matriz">
+              <p>A</p>
+            </div>
+            <div class="col-1 square-matriz">
+              <p>B</p>
+            </div>
+            <div class="col-1 square-matriz">
+              <p>C</p>
+            </div>
+            <div class="col-1 square-matriz">
+              <p>D</p>
+            </div>
+            <div class="col-1 square-matriz">
+              <p>E</p>
+            </div>
+            <div class="col-1 square-matriz">
+              <p>J</p>
+            </div>
+            <div class="col-1 square-matriz">
+              <p>K</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 square-matriz">
+              <p>A</p>
+            </div>
+            <div *ngFor="let item of matrizDeConfusaoCaracter" class="col-1 square-matriz">
+              <p>{{item[0]}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 square-matriz">
+              <p>B</p>
+            </div>
+            <div *ngFor="let item of matrizDeConfusaoCaracter" class="col-1 square-matriz">
+              <p>{{item[1]}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 square-matriz">
+              <p>C</p>
+            </div>
+            <div *ngFor="let item of matrizDeConfusaoCaracter" class="col-1 square-matriz">
+              <p>{{item[2]}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 square-matriz">
+              <p>D</p>
+            </div>
+            <div *ngFor="let item of matrizDeConfusaoCaracter" class="col-1 square-matriz">
+              <p>{{item[3]}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 square-matriz">
+              <p>E</p>
+            </div>
+            <div *ngFor="let item of matrizDeConfusaoCaracter" class="col-1 square-matriz">
+              <p>{{item[4]}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 square-matriz">
+              <p>J</p>
+            </div>
+            <div *ngFor="let item of matrizDeConfusaoCaracter" class="col-1 square-matriz">
+              <p>{{item[5]}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 square-matriz">
+              <p>K</p>
+            </div>
+            <div *ngFor="let item of matrizDeConfusaoCaracter" class="col-1 square-matriz">
+              <p>{{item[6]}}</p>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="matriz2 && matrizDeConfusao[0][0]!==undefined" class="matriz">
+          <div class="row">
+            <div class="col-1 square-matriz">
+              <p></p>
+            </div>
+            <div class="col-1 square-matriz">
+              <p>0</p>
+            </div>
+            <div class="col-1 square-matriz">
+              <p>1</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 square-matriz">
+              <p>0</p>
+            </div>
+            <div class="col-1 square-matriz">
+              <p>{{matrizDeConfusao[0][0]}}</p>
+            </div>
+            <div class="col-1 square-matriz">
+              <p>{{matrizDeConfusao[0][1]}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 square-matriz">
+              <p>1</p>
+            </div>
+            <div class="col-1 square-matriz">
+              <p>{{matrizDeConfusao[1][0]}}</p>
+            </div>
+            <div class="col-1 square-matriz">
+              <p>{{matrizDeConfusao[1][1]}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div *ngIf="graficoBoolean" class=" col-12">
+            <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+              [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="'line'" [plugins]="lineChartPlugins">
+            </canvas>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card style="margin-top: 30px; min-height: 500px;">
+      <mat-card-content>
+        <div class="row">
+          <div class="col-8">
+            <mat-form-field class="input-final" appearance="fill">
+              <input #novaPalavra class="input-final" matInput formControlName="formControlName" type="text" required
+                placeholder="">
+            </mat-form-field>
+          </div>
+          <div class="col-2">
+            <button mat-raised-button color="primary" class="button-post" mat-button
+              (click)="post(novaPalavra.value)">Action</button>
+          </div>
+        </div>
+        <div class="row">
+          <mat-list>
+            <mat-list-item style="font-size: 18 !important;">
+              Mensagens:
+              {{mensagem1}}
+              {{mensagem2}}
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
