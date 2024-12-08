@@ -1,0 +1,12 @@
+“QUERY PLAN”                                               
+“Sort  (cost=23.89..23.90 rows=1 width=44)”
+“  Sort Key: produto.dataadquirida”
+“  ->  Nested Loop  (cost=21.28..23.88 rows=1 width=44)”
+“        ->  Hash Join  (cost=21.13..23.07 rows=1 width=12)”
+“              Hash Cond: (historico.idproduto = produto.idproduto)”
+“              ->  Seq Scan on historico  (cost=0.00..1.75 rows=75 width=8)”
+“              ->  Hash  (cost=21.10..21.10 rows=2 width=8)”
+“                    ->  Seq Scan on produto  (cost=0.00..21.10 rows=2 width=8)”
+“                          Filter: (vendido AND (dataadquirida >= '2017-01-01'::date) AND (dataadquirida <= '2020-12-31'::date))”
+“        ->  Index Scan using id_cliente_id on cliente  (cost=0.15..0.81 rows=1 width=36)”
+“              Index Cond: (idcliente = historico.idcliente)”

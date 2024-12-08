@@ -1,0 +1,22 @@
+--view
+
+create or replace view acesso_servico AS
+SELECT Servico.status, Funcionario.nome, Funcionario.telefone, Funcionario.email,Funcionario.salario,Funcionario.cpf, Servico.datapedido, Servico.preco, Historico.parcelas, Especialidade.especialidade
+FROM Historico, Funcionario, Servico, Cliente, Especialidade
+WHERE Cliente.idCliente = Historico.idCliente AND Historico.idServico = Servico.idServico AND Servico.idTecnico = Funcionario.idFuncionario AND (Servico.status = ‘A’ OR Servico.status = ‘T’) AND Funcionario.idFuncionario = Especialidade.idfuncionario
+
+--Consulta útil para o gerente procurando quantos serviços foram realizados e informações gerais dos técnicos no último ano a terminar um serviço para verificar desempenho.
+
+SELECT acesso_servico.nome, acesso_servico.telefone, acesso_servico.email,acesso_servico.salario,acesso_servico.cpf, acesso_servico.especialidade, COUNT(*) NServicos
+FROM acesso_servico
+WHERE acesso_servico.status = 'T' AND acesso_servico.datapedido >= '2019-12-31'AND '2021-12-31' >= acesso_servico.datapedido
+GROUP BY acesso_servico.nome, acesso_servico.telefone, acesso_servico.email,acesso_servico.salario,acesso_servico.cpf, acesso_servico.especialidade
+HAVING COUNT(*) > 1;
+
+--Consulta para um atendente procurando serviços do cliente para repassar situação dos serviços e técnico em cargo desde 2021:
+
+
+SELECT acesso_servico.nome, acesso_servico.telefone, acesso_servico.email, acesso_servico.datapedido, acesso_servico.preco, acesso_servico.status, acesso_servico.parcelas
+ FROM acesso_servico, cliente
+WHERE(cliente.nome = 'Gabriella Porto Robalinho' AND acesso_servico.datapedido >= '2020-12-31')
+ORDER BY acesso_servico.datapedido;

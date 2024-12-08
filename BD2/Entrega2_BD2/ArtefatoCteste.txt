@@ -1,0 +1,13 @@
+Consulta útil para o gerente procurando quantos serviços foram realizados e informações gerais dos técnicos no último ano a terminar um serviço para verificar desempenho.
+
+TABELA SELECT
+"nome","telefone","email","salario","cpf","especialidade","nservicos"
+"Ariela Severiano Simões","1324567135 ","este.b.a.nmi.ll.s.114@gmail.com",2000,"5283914100 ","tecnico de software",11
+
+Consulta para um atendente procurando serviços do cliente para repassar situação dos serviços e técnico em cargo desde 2021:
+	
+TABELA SELECT
+"nome","telefone","email","datapedido","preco","status","parcelas"
+"Ariela Severiano Simões","1324567135 ","este.b.a.nmi.ll.s.114@gmail.com","2022-04-14",200.0,"A",1
+
+

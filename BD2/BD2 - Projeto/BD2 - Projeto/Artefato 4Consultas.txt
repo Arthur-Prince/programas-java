@@ -1,0 +1,88 @@
+﻿1) Consulta que busca encontrar o nome e id de cada cliente que comprou algum produto que entrou em estoque entre 1/1/2017 e 31/12/2020 junto ao id do produto. 
+
+
+SELECT cliente.nome, cliente.idcliente, produto.idproduto FROM produto, historico, cliente
+WHERE cliente.idcliente = historico.idcliente and (historico.idproduto = (SELECT produto.idproduto where(dataadquirida BETWEEN '2017-01-01' AND '2020-12-31') AND (vendido = true)))
+ORDER BY dataadquirida;
+
+
+Tabela SELECT
+"nome","idcliente","idproduto"
+"Amira Carrasco Santos",5,7
+"Amira Carrasco Santos",5,8
+"Gabriella Porto Robalinho",7,27
+"Ema Zambujal Castanheira",8,28
+"Karina Setúbal Sampaio",9,29
+"Valentino Correia Godoi",15,30
+"Maria José",1,31
+"Gabriella Porto Robalinho",7,32
+"Vitória Camacho Figueiredo",11,33
+"Vitória Camacho Figueiredo",11,34
+"Yassna Varela Castelhano",10,35
+"Josefina Pontes Pardo",6,9
+"Nuno Mascarenhas Vilaça",18,38
+"Ayra Galindo Fontinha",2,36
+"Ema Zambujal Castanheira",8,37
+
+
+
+
+2) Consulta que procura o fornecedor com maior número de produtos devolvidos, retorna o id do fornecedor, o nome da fornecedora, e o número de produtos devolvidos fornecidos pela empresa.
+
+
+SELECT fornecedores.idfornecedor,fornecedores.nome, count(fornecedores.idfornecedor) AS ProdutosDevolvidos FROM fornecedores join produto
+on produto.idfornecedor = fornecedores.idfornecedor 
+where produto.idproduto = (SELECT idproduto where vendido = 't' EXCEPT (SELECT idproduto FROM produto WHERE devolvido = 'f'))
+group by fornecedores.idfornecedor
+order by ProdutosDevolvidos DESC
+Limit 1;
+
+
+Tabela SELECT
+"idfornecedor","nome","produtosdevolvidos"
+110,"CoolMaster",2
+
+
+
+
+
+
+3) Informações dos serviços (id, preço e tipo) que teve o maior preço dentro de cada tipo de serviço e que tenham já sido terminados e feito pelo técnico com id específico (idtecnico: 7):
+
+
+SELECT s.idservico, s.preco, s.tipo
+FROM servico s
+WHERE status='T' AND idtecnico = 7 
+AND (s.tipo, s.preco) IN 
+(SELECT tipo, MAX(preco) 
+FROM servico 
+GROUP BY tipo);
+
+
+Tabela SELECT
+"idservico","preco","tipo"
+5,150.00,"Limpeza"
+7,659.00,"Assistencia"
+
+
+4) O nome do fornecedor preferido da pessoa que gastou mais dinheiro comprando os seus produtos, junto com o nome dessa pessoa e o quanto ela gastou com os produtos deste fornecedor
+
+
+select f.nome, nome_idProd_dinGasto.nome, nome_idProd_dinGasto.dinheiro_gasto
+from fornecedores f natural join produto p,
+(        select x.idproduto, x.nome, dinheiro_gasto
+        from (historico natural join cliente) x,(select c.nome, sum(h.valorpago) as dinheiro_gasto
+                from cliente c natural join historico h
+                group by c.nome) as tp
+         where x.nome = tp.nome) as nome_idProd_dinGasto
+where nome_idProd_dinGasto.idproduto = p.idproduto and 
+                nome_idProd_dinGasto.dinheiro_gasto = (select max(dinheiro_gasto)
+                from(select c.nome, sum(h.valorpago) as dinheiro_gasto
+                        from cliente c natural join historico h
+                        group by c.nome) as temp)
+group by nome_idProd_dinGasto.nome, f.nome, nome_idProd_dinGasto.dinheiro_gasto
+
+
+Tabela Select 
+"nome","nome-2","dinheiro_gasto"
+"CoolMaster","Ema Zambujal Castanheira",10899.98

@@ -1,0 +1,58 @@
+
+
+-- atributo complexo implementado na tabela atendente
+create type mes as enum('jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez');
+
+create type atributo_Atendente as (
+	funcionario_do_mes boolean,
+	mes mes,
+	ano INTEGER 
+);
+
+alter table atendente add COLUMN dedicacao atributo_Atendente;
+
+--testes
+update atendente set dedicacao = (row(true,'fev',2022))
+where idfuncionario =1;
+
+update atendente set dedicacao = (row(false,'fev',2022))
+where idfuncionario =2;
+
+select * from atendente;
+
+
+--para fazer hierarquia vamos adicionar um estagiario de atendente que recebe uma nota de avaliacao do seu trabalho
+
+create table estagiario( notaestagio integer, atividades varchar) inherits(atendente);
+
+--testes
+
+insert into estagiario(idfuncionario, dedicacao, notaestagio, atividades) 
+values(10,(row(false,'fev',2022)), 8, 'trabalhou bem');
+
+select * from estagiario;
+
+select * from atendente;
+
+select * from only atendente;
+
+
+--tipos referencias são filhas da tabela de clientesPremium e apontam para o gerente
+
+create type cliente_reclamao under clientePremium(
+	descricao varchar,
+	gerente ref(idgerente) scope gerente
+);
+
+create table clientes_reclamao of cliente_reclamao under clientePremium
+
+
+
+
+
+
+
+
+
+
+

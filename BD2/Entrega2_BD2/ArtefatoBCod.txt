@@ -1,0 +1,16 @@
+CREATE VIEW atendente_seguranca AS
+SELECT Cliente.idCliente, Historico.valorPago, Historico.parcelas, Historico.idProduto, Historico.idServico, Produto.devolvido, Servico.status 
+FROM Cliente, Historico, Produto, Servico 
+WHERE Cliente.idCliente = Historico.idCliente AND (Historico.idProduto = Produto.idProduto OR Historico.idServico = Servico.idServico)
+
+
+-- Atendente consultando a compra de produtos de um cliente (1):
+SELECT idCliente, valorPago, parcelas, idProduto, devolvido
+FROM atendente_seguranca
+WHERE idCliente = 1;
+
+
+-- Atendente buscando os serviços pedidos de um cliente (1):
+SELECT idCliente, valorPago, parcelas, idServico, status
+FROM atendente_seguranca
+WHERE idCliente = 1;

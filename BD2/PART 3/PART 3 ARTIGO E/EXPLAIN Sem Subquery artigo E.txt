@@ -1,0 +1,8 @@
+"QUERY PLAN"
+"Hash Join  (cost=22.02..41.49 rows=125 width=162)"
+"  Hash Cond: (historico.idproduto = produto.idproduto)"
+"  Join Filter: (historico.valorpago > produto.valor)"
+"  ->  Seq Scan on historico  (cost=0.00..17.50 rows=750 width=80)"
+"  ->  Hash  (cost=17.40..17.40 rows=370 width=82)"
+"        ->  Seq Scan on produto  (cost=0.00..17.40 rows=370 width=82)"
+"              Filter: (NOT devolvido)"

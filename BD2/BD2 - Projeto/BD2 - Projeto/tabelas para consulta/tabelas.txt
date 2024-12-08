@@ -1,0 +1,198 @@
+
+create table Cliente(
+	idCliente SERIAL,
+	nome varchar,
+	constraint ID_CLIENTE_ID primary key(idCliente)
+);
+
+create table Endereco(
+	idEndereco SERIAL,
+	rua varchar,
+	CEP char(10),
+	complemento varchar,
+	estado char(2),
+	constraint ID_ENDERECO_ID primary key(idEndereco)
+);
+
+create table ClientePremium(
+	idCliente INTEGER,
+	telefone char(11) not null,
+	CPF char(11) not null,
+	email varchar not null,
+	desconto NUMERIC default 0,
+	idEndereco INTEGER,
+	constraint ID_CLIENTEP_ID primary key(idCliente)
+);
+
+create table Fornecedores(
+	idFornecedor SERIAL,
+	nome varchar not null,
+	tipoProduto varchar not null,
+	idEndereco INTEGER,
+	constraint ID_FORNECEDOR_ID primary key(idFornecedor)
+);
+
+create table Departamento(
+	idDepartamento SERIAL,
+	nome varchar not null,
+	idGerente INTEGER,
+	idEndereco INTEGER,
+	constraint ID_DEPARTAMENTO_ID primary key(idDepartamento)
+);
+
+create table Funcionario(
+	idFuncionario SERIAL,
+	nome varchar not null,
+	CPF char(11) not null,
+	salario numeric default 0,
+	email varchar not null,
+	telefone char(11),
+	idEndereco INTEGER,
+	idDepartamento INTEGER,
+	constraint ID_FUNCIONARIO_ID primary key(idFuncionario)
+);
+
+create table Gerente(
+	idFuncionario INTEGER,
+	constraint ID_FUNCIONARIOG_ID primary key(idFuncionario)
+);
+
+create table Atendente(
+	idFuncionario INTEGER,
+	constraint ID_FUNCIONARIOA_ID primary key(idFuncionario)
+);
+
+create table Especialidade(
+	idEspecialidade SERIAL,
+	idFuncionario INTEGER,
+	especialidade varchar,
+	constraint ID_FUNCIONARIO_ESPECIALIDADE_ID primary key(idEspecialidade, idFuncionario)
+);
+
+create table Tecnico(
+	idFuncionario INTEGER,
+	constraint ID_FUNCIONARIOT_ID primary key(idFuncionario)
+);
+
+create table Produto(
+	idProduto SERIAL,
+	vendido BOOLEAN default false,
+	dataAdquirida DATE,
+	dataVendida DATE,
+	valor numeric,
+	devolvido boolean DEFAULT false,
+	categoria varchar,
+	idFornecedor INTEGER,
+	constraint ID_PRODUTO_ID primary key(idProduto)
+);
+
+create table servico(
+	idServico SERIAL,
+	status char(1) default 'A',
+	preco numeric,
+	tipo varchar,
+	dataPedido DATE,
+	idTecnico INTEGER,
+	constraint ID_SERVICO_ID primary key(idServico)
+);
+
+create table Historico(
+	idCliente INTEGER,
+	idHistorico SERIAL,
+	valorPago numeric,
+	parcelas numeric,
+	idServico INTEGER,
+	idProduto INTEGER,
+	constraint ID_HISTORICO_ID primary key(idCliente, idHistorico)
+);
+
+create table Atende(
+	idCliente INTEGER,
+	idAtendente INTEGER,
+	constraint ID_atende_ID primary key(idCliente, idAtendente)
+);
+
+--chave estrangeiras
+
+
+ALTER TABLE Historico ADD CONSTRAINT FK_Produto_2
+    FOREIGN KEY (idHistorico)
+    REFERENCES Produto (idProduto)
+    ON DELETE NO ACTION;
+ 
+ALTER TABLE Produto ADD CONSTRAINT FK_Produto_3
+    FOREIGN KEY (idFornecedor)
+    REFERENCES Fornecedores
+    ON DELETE SET NULL;
+ 
+ALTER TABLE ClientePremium ADD CONSTRAINT FK_Cliente_END_2
+    FOREIGN KEY (idEndereco)
+    REFERENCES Endereco
+    ON DELETE RESTRICT;
+	
+ALTER TABLE ClientePremium ADD CONSTRAINT FK_Cliente
+    FOREIGN KEY (idCliente)
+    REFERENCES Cliente
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Historico ADD CONSTRAINT FK_Servico_2
+    FOREIGN KEY (idServico)
+    REFERENCES Servico (idServico)
+    ON DELETE NO ACTION;
+ 
+ALTER TABLE Servico ADD CONSTRAINT FK_Servico_3
+    FOREIGN KEY (idTecnico)
+    REFERENCES Tecnico
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Funcionario ADD CONSTRAINT FK_Funcionario_3
+    FOREIGN KEY (idEndereco)
+    REFERENCES Endereco
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Funcionario ADD CONSTRAINT FK_Funcionario_4
+    FOREIGN KEY (idDepartamento)
+    REFERENCES Departamento
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Departamento ADD CONSTRAINT FK_Departamento_2
+    FOREIGN KEY (idEndereco)
+    REFERENCES Endereco
+    ON DELETE RESTRICT;
+ 
+
+ALTER TABLE Departamento ADD CONSTRAINT FK_Departamento_4
+    FOREIGN KEY (idGerente)
+    REFERENCES Gerente
+    ON DELETE set null;
+
+ALTER TABLE Fornecedores ADD CONSTRAINT FK_Fornecedor_2
+    FOREIGN KEY (idEndereco)
+    REFERENCES Endereco
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Atende ADD CONSTRAINT FK_interage_1
+    FOREIGN KEY (idCliente)
+    REFERENCES Cliente
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Atende ADD CONSTRAINT FK_interage_2
+    FOREIGN KEY (idAtendente)
+    REFERENCES Atendente
+    ON DELETE SET NULL;
+
+ALTER TABLE Gerente ADD CONSTRAINT FK_Gerente
+    FOREIGN KEY (idFuncionario)
+    REFERENCES Funcionario
+    ON DELETE CASCADE;
+	
+ALTER TABLE  Atendente ADD CONSTRAINT FK_Atendente
+    FOREIGN KEY (idFuncionario)
+    REFERENCES Funcionario
+    ON DELETE CASCADE;
+	
+ALTER TABLE Tecnico ADD CONSTRAINT FK_Tecnico
+    FOREIGN KEY (idFuncionario)
+    REFERENCES Funcionario
+    ON DELETE CASCADE;
+

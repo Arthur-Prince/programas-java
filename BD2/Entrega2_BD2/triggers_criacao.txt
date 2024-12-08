@@ -1,0 +1,114 @@
+
+
+CREATE OR REPLACE FUNCTION ATUALIZA_DESCONTO()
+RETURNS trigger AS $$
+	DECLARE
+		c integer :=0;
+		ID INTEGER;
+		d numeric := 0;
+
+	BEGIN
+		
+		--guarda em c o tanto de compras/servico o cliente pediu
+		SELECT count(*) as NUMCOMPRA into c FROM HISTORICO H WHERE H.IDCliente = NEW.IDCliente;
+		ID = NEW.IDCliente;
+
+		IF(C>0 AND ID IN (SELECT IDCliente FROM CLIENTEPREMIUM)) THEN
+
+			--se fez pelo menos havia feito 1 compra/servico ganha desconto de 5%
+			IF C >= 1 THEN
+				UPDATE CLIENTEPREMIUM CP SET DESCONTO = 5 WHERE ID = CP.IDCliente;
+				d=0.05;
+			END IF;
+			--se fez pelo menos havia feito 3 compra/servico ganha desconto de 10%
+			IF C >= 3 THEN
+				UPDATE CLIENTEPREMIUM CP SET DESCONTO = 10 WHERE ID = CP.IDCliente;
+				d=0.1;
+			END IF;
+			--se fez pelo menos havia feito 5 compra/servico ganha desconto de 15%
+			IF C >= 5 THEN
+				UPDATE CLIENTEPREMIUM CP SET DESCONTO = 15 WHERE ID = CP.IDCliente;
+				d=0.15;
+			END IF;
+			
+		END IF;
+		--adiciona desconto na compra/servico
+		NEW.VALORPAGO = NEW.VALORPAGO*(1-D);
+		RETURN NEW;
+	
+	END;
+$$ LANGUAGE 'plpgsql';
+
+--ATUALIZA O DESCONTO NA TABELA CLIENTEPREMIUM
+	   
+CREATE OR REPLACE TRIGGER ATUALIZA_COMPRA 
+BEFORE INSERT ON HISTORICO
+FOR EACH ROW
+EXECUTE FUNCTION ATUALIZA_DESCONTO();
+
+
+
+--segunda trigger
+
+
+CREATE OR REPLACE FUNCTION DESCONTO_PRODUTO()
+RETURNS trigger AS $$
+	DECLARE
+		--variaveis para contar quantas linhas tem a tabela produto
+		num_produtos_fornecedor integer;
+		num_produto_vendido integer;
+		num_produto_devolvido integer;
+		f record;
+	BEGIN
+		--itera em todos os fornecedores
+		for f in SELECT * from fornecedores
+		loop
+			--conta quantos produtos cada fornecedor tem na loja
+			select count(*) into num_produtos_fornecedor
+			from produto p where f.idfornecedor = p.idfornecedor;
+			--conta quantos produtos foram vendidos de cada fornecedor na loja
+			select count(*) into num_produto_vendido
+			from produto p where f.idfornecedor = p.idfornecedor AND p.vendido = true;
+			--conta quantos produtos foram devolvido de cada fornecedor na loja
+			select count(*) into num_produto_devolvido
+			from produto p where f.idfornecedor = p.idfornecedor AND p.devolvido = true;
+			
+			
+			--se o dobro dos produtos devolvidos for maior que o numero de produtos vendidos e o numero de produtos
+			--for pelo menos 1.5 vezes maior que o numero de produtos vendidos
+			IF (num_produto_vendido < 2*num_produto_devolvido and num_produtos_fornecedor < 1.5*num_produto_vendido)
+			then
+				--da desconto de 5% em todos os produtos daquele fornecedor
+				update produto p set valor = valor*(0.95) where f.idfornecedor = p.idfornecedor;
+			end if;
+		
+		end loop;
+		
+
+		return null;
+	END;
+
+$$ LANGUAGE 'plpgsql';
+
+
+
+
+
+CREATE OR REPLACE TRIGGER ATUALIZA_DESCONTO_PRODUTO
+AFTER INSERT OR UPDATE OR DELETE ON PRODUTO
+FOR EACH STATEMENT
+WHEN (pg_trigger_depth() < 1)
+EXECUTE FUNCTION DESCONTO_PRODUTO();
+
+
+
+
+
+
+
+
+
+
+
+
+

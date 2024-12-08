@@ -1,0 +1,113 @@
+--TESTE 1
+--adiciona produtos em historico
+
+update produto set vendido = true where idproduto = 10;
+
+insert into historico (idcliente, valorPago,parcelas,idservico,idproduto)
+values(8,590.49,1, null ,10);
+
+update produto set vendido = true where idproduto = 15;
+
+insert into historico (idcliente, valorPago,parcelas,idservico,idproduto)
+values(8,590.49,1, null ,15);
+
+update produto set vendido = true where idproduto = 16;
+
+insert into historico (idcliente, valorPago,parcelas,idservico,idproduto)
+values(8,590.49,1, null ,15);
+
+update produto set vendido = true where idproduto = 17;
+
+insert into historico (idcliente, valorPago,parcelas,idservico,idproduto)
+values(8,590.49,1, null ,17);
+
+
+--ver resultado
+SELECT idcliente, nome, desconto, idproduto, VALORPAGO
+FROM CLIENTE c natural join CLIENTEPREMIUM cp natural join historico
+where idcliente =8;
+
+--antes 
+idcliente, nome, desconto, idproduto, VALORPAGO
+8	"Ema Zambujal Castanheira"	5	28	10199.99
+8	"Ema Zambujal Castanheira"	5	37	699.99
+
+--depois
+idcliente, nome, desconto, idproduto, VALORPAGO
+8	"Ema Zambujal Castanheira"	15	28	10199.99
+8	"Ema Zambujal Castanheira"	15	37	699.99
+8	"Ema Zambujal Castanheira"	15	10	560.9655
+8	"Ema Zambujal Castanheira"	15	15	531.441
+8	"Ema Zambujal Castanheira"	15	15	531.441
+8	"Ema Zambujal Castanheira"	15	17	501.9165
+
+
+
+--teste 2
+
+update produto set vendido = true, devolvido= true where idfornecedor = 140;
+
+--teste 3
+insert into produto(vendido,valor,devolvido,categoria,idfornecedor)
+values(false, 100, false, 'periferico',140 );
+
+insert into produto(vendido,valor,devolvido,categoria,idfornecedor)
+values(false, 100, false, 'periferico',140 );
+
+insert into produto(vendido,valor,devolvido,categoria,idfornecedor)
+values(false, 100, false, 'periferico',140 );
+
+insert into produto(vendido,valor,devolvido,categoria,idfornecedor)
+values(false, 100, false, 'periferico',140 );
+
+insert into produto(vendido,valor,devolvido,categoria,idfornecedor)
+values(false, 100, false, 'periferico',140 );
+
+insert into produto(vendido,valor,devolvido,categoria,idfornecedor)
+values(false, 100, false, 'periferico',140 );
+
+insert into produto(vendido,valor,devolvido,categoria,idfornecedor)
+values(false, 100, false, 'periferico',140 );
+
+
+--resultado
+select idproduto, vendido, valor, devolvido, categoria, idfornecedor
+from produto where idfornecedor = 140;
+
+--antes
+idproduto, vendido, preco, devolvido, categoria, idfornecedor
+		9	true	590.49	true	"periferico"	140
+		22	false	69.99	false	"periferico"	140
+		23	false	31.49	false	"periferico"	140
+		24	false	54.89	false	"periferico"	140
+		25	false	120.69	false	"periferico"	140
+		26	false	189.59	false	"periferico"	140
+
+--depois do teste 2
+
+
+idproduto, vendido, preco, devolvido, categoria, idfornecedor
+		9	true	560.9655	true	"periferico"	140
+		22	true	66.4905		true	"periferico"	140
+		23	true	29.9155		true	"periferico"	140
+		24	true	52.1455		true	"periferico"	140
+		25	true	114.6555	true	"periferico"	140
+		26	true	180.1105	true	"periferico"	140
+
+--depois do teste 3
+
+
+idproduto, vendido, preco, devolvido, categoria, idfornecedor
+9	true	506.27136375	true	"periferico"	140
+22	true	60.00767625		true	"periferico"	140
+23	true	26.99873875		true	"periferico"	140
+24	true	47.06131375		true	"periferico"	140
+25	true	103.47658875	true	"periferico"	140
+26	true	162.54972625	true	"periferico"	140
+39	false	90.2500			false	"periferico"	140
+40	false	95.00			false	"periferico"	140
+41	false	100				false	"periferico"	140
+42	false	100				false	"periferico"	140
+43	false	100				false	"periferico"	140
+44	false	100				false	"periferico"	140
+45	false	100				false	"periferico"	140

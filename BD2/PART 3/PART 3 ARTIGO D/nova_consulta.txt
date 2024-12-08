@@ -1,0 +1,6 @@
+SELECT cliente.nome, cliente.idcliente, produto.idproduto 
+FROM historico
+INNER JOIN produto ON historico.idproduto = produto.idproduto
+INNER JOIN cliente ON historico.idcliente = cliente.idcliente
+WHERE (produto.dataadquirida BETWEEN '2017-01-01' AND '2020-12-31') AND (produto.vendido = true)
+ORDER BY dataadquirida;

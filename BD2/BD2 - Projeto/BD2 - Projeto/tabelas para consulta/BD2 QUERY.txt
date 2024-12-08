@@ -1,0 +1,615 @@
+insert into cliente(nome)
+values('Maria José');
+
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(1,'Avenida São João', 13216000, 'Vila Joana 131', 'SP');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(200000,'Rua Barão de Vitória', 09961660, 'Casa Grande 2131', 'SP');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(100000,'Rua das Fiandeiras', 04545005, 'Vila Olímpia 231', 'SP');
+
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(1,8321878116,67665568467,'saprygin2011@riuire.com',10,1);
+
+
+insert into funcionario(idfuncionario, nome, cpf, salario,email, telefone, idendereco)
+values(10,'Anaya Amaro Quintas',32486213769,6000,'quintasleton@partnerct.com',6824488487,200000);
+
+insert into gerente(idfuncionario)
+values(10);
+
+insert into departamento(iddepartamento,nome,idgerente,idendereco)
+values(1,'setor de vendas',10,100000);
+
+update funcionario
+set iddepartamento = 1
+where idfuncionario= 10;
+
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(200001,'Rua Carlos Augusto Cornelsen', 80520560, 'Bom Retiro 931', 'PR');
+
+
+insert into funcionario(idfuncionario, nome, cpf, salario,email, telefone, idendereco, iddepartamento)
+values(1,'Isabella Barroqueiro Cotrim',32485796769,2400,'thomasmiddleton@partnerct.com',6824488487,200000,1);
+
+insert into atendente(idfuncionario)
+values(1);
+
+insert into atende(idcliente,idatendente)
+values(1,1);
+
+insert into cliente(idcliente, nome)
+values(2,'Ayra Galindo Fontinha');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(2,'Rua Frederico Moura', 14401150, 'Cidade Nova 141', 'SP');
+
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(2,8321878116,7932708668,'pinto114@uioct.com',10,2);
+
+insert into atende(idcliente,idatendente)
+values(2,1);
+
+insert into cliente(idcliente, nome)
+values(3,'Simão Mieiro Botica');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(3,'Rua Arlindo Nogueira', 64000290, 'Centro 41', 'PI');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(3,8928657767,60137535120,'joneltmp+cneqh@gmail.com',10,3);
+
+insert into atende(idcliente,idatendente)
+values(3,1);
+
+
+insert into cliente(idcliente, nome)
+values(4,'Joaquim Carromeu Hernandes');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(4,'Rua da Imprensa', 79002290, 'Monte Castelo 461', 'MS');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(4,6738987642,17076231557,'daratmp+8omxu@gmail.com',10,4);
+
+insert into atende(idcliente,idatendente)
+values(4,1);
+
+insert into cliente(idcliente, nome)
+values(5,'Amira Carrasco Santos');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(5,'Rua Arlindo Nogueira', 64000290, 'Centro 231', 'PI');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(5,8925332761,67412931679,'jona.th.a.nm.ichae.l.t.mp@gmail.com',5,5);
+
+insert into atende(idcliente,idatendente)
+values(5,1);
+
+insert into cliente(idcliente, nome)
+values(6,'Josefina Pontes Pardo');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(6,'Avenida Almirante Maximiano Fonseca', 96204040, 'Zona Portuária', 'RS');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(6,5126178871,21271479524,'ja.n.ee.sev.ict.o.r.jh@gmail.com',5,6);
+
+insert into atende(idcliente,idatendente)
+values(6,1);
+
+insert into cliente(idcliente, nome)
+values(7,'Gabriella Porto Robalinho');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(7,'Rodovia Raposo Tavares', 	06709015, 'Lageadinho 122', 'SP');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(7,1427684996,56131103100,'rls1bt0@gmailnator.com',5,7);
+
+insert into atende(idcliente,idatendente)
+values(7,1);
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(200002,'Rua Frederico Moura', 14401150, 'Cidade Nova 2331', 'SP');
+
+
+insert into funcionario(idfuncionario, nome, cpf, salario,email, telefone, idendereco, iddepartamento)
+values(2,'Thayra Portugal Coelho',43634295260,1400,'claytmp+bnu58@gmail.com',1831941553,200001,1);
+
+insert into atendente(idfuncionario)
+values(2);
+
+insert into cliente(idcliente, nome)
+values(8,'Ema Zambujal Castanheira');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(8,'Rua Pereira Estéfano', 04144070, 'Vila da Saúde 51 apt 21', 'SP');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(8,1623439572,27850131401,'irontmp+l4vf7@gmail.com',15,8);
+
+insert into atende(idcliente,idatendente)
+values(8,2);
+
+insert into cliente(idcliente, nome)
+values(9,'Karina Setúbal Sampaio');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(9,'Rua Maria Luísa do Val Penteado',03962040, 'Cidade São Mateus 71', 'SP');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(9,1121092936,62412192197,'utx7soz@psnator.com',5,9);
+
+insert into atende(idcliente,idatendente)
+values(9,2);
+
+
+insert into cliente(idcliente, nome)
+values(10,'Yassna Varela Castelhano');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(10,'Rodovia Raposo Tavares', 06709015, 'Lageadinho 61', 'SP');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(10,1221623555,67586435227,'idso5ju@gmailnator.com',10,10);
+
+insert into atende(idcliente,idatendente)
+values(10,2);
+
+insert into cliente(idcliente, nome)
+values(11,'Vitória Camacho Figueiredo');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(11,'Rua Barão de Vitória', 09961660, 'Casa Grande 21', 'SP');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(11,8925332761,67412931679,'jona.th.a.nm.ichae.l.t.mp@gmail.com',5,5);
+
+insert into atende(idcliente,idatendente)
+values(11,2);
+
+insert into cliente(idcliente, nome)
+values(12,'Daniel Milhães Piteira');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(12,'Avenida São João', 05706777, 'Vila Joana 11', 'SP');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(12,1833414726,63808328070,'n.ico.mill.e.r.189@gmail.com',15,12);
+
+insert into atende(idcliente,idatendente)
+values(12,2);
+
+insert into cliente(idcliente, nome)
+values(13,'Giani Lago Novais');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(13,'Rua Barão de Vitória', 	09961660, 'Casa Grande 12', 'SP');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(13,1924058654,36736802857,'v.a.n.es.sagr.e.entmp@gmail.com',5,13);
+
+insert into atende(idcliente,idatendente)
+values(13,2);
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(200003,'Rodovia Raposo Tavares', 06709015, 'Lageadinho 31 apt 11', 'SP');
+
+insert into funcionario(idfuncionario, nome, cpf, salario,email, telefone, idendereco, iddepartamento)
+values(4,'Guilherme Gomide Ornelas',89148672343,1400,'hilli.ary.sh.ee.n.a.i.i5.8@gmail.com',1338224590,200003,1);
+
+insert into atendente(idfuncionario)
+values(4);
+
+insert into cliente(idcliente, nome)
+values(14,'Layra Meireles Carmo');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(14,'Rua Barão de Vitória', 09961660, 'Casa Grande 551 apt 2', 'SP');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(14,1521594848,65451482900,'j.al.e.elj.uli.ad.d@gmail.com',10,14);
+
+insert into atende(idcliente,idatendente)
+values(14,4);
+
+insert into cliente(idcliente, nome)
+values(15,'Valentino Correia Godoi');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(15,'Avenida Esbertalina Barbosa Damiani',29946490, 'Guriri Norte 11', 'ES');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(15,2729153433,87324985351,'j.o.n.a.thanm.i.c.haelt.mp@gmail.com',15,15);
+
+insert into atende(idcliente,idatendente)
+values(15,4);
+
+
+insert into cliente(idcliente, nome)
+values(16,'Poliana Anhaia Figueira');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(16,'Rua Barão de Vitória', 09961660, 'Casa Grande 1', 'SP');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(16,1937283376,54326846160,'hi.l.li.a.r.ys.heen.ai.i5.8@gmail.com',10,16);
+
+insert into atende(idcliente,idatendente)
+values(16,4);
+
+insert into cliente(idcliente, nome)
+values(17,'Nélson Cabeça de Vaca Peralta');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(17,'Rua Pereira Estéfano', 04144070, 'Vila da Saúde 111', 'SP');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(17,162181-2173,48026341295,'xb.gx.t.mp.qw.gztz.cfav@gmail.com',5,17);
+
+insert into atende(idcliente,idatendente)
+values(17,4);
+
+insert into cliente(idcliente, nome)
+values(18,'Nuno Mascarenhas Vilaça');
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(18,'Rua Paracatu', 04302021, 'Rua Paracatu 151', 'SP');
+
+insert into clientepremium(idcliente, telefone,cpf,email,desconto,idendereco)
+values(18,1423483227,41259817873,'conni.e.j.u.sti.n.a.tdf@gmail.com',10,18);
+
+insert into atende(idcliente,idatendente)
+values(18,4);
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(9000,'Rua Cristiano Olsen', 16015244, 'Jardim Sumaré 11', 'SP');
+
+insert into fornecedores(idfornecedor,nome,tipoproduto,idendereco)
+values(100,'Hardware Rider','perifericos',9000);
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(9001,'Rua Frederico Moura', 14401150, 'Cidade Nova 11', 'SP');
+
+insert into departamento(iddepartamento, nome, idendereco)
+values(100,'Departamento Perifericos',9001);
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(200005,'Rua Barão de Vitória', 09961660, 'Casa Grande 212  apt 10', 'SP');
+
+insert into funcionario(idfuncionario, nome, cpf, salario,email, telefone, idendereco, iddepartamento)
+values(6,'Túlio Vidal Bonilha',67055519764,2400,'jc.a.n.d.ice.k.k@gmail.com',1622676625,200005,100);
+
+insert into gerente(idfuncionario)
+values(6);
+
+update departamento
+set idgerente = 6
+where iddepartamento = 100;
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(9002,'Rua Cristiano Olsen', 16015244, 'Jardim Sumaré 12', 'SP');
+
+insert into departamento(iddepartamento, nome, idendereco)
+values(101,'Tecnicos',9002);
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(200004,'Rua Maria Luísa do Val Penteado', 03962040, 'Cidade São Mateus 2  apt 11', 'SP');
+
+insert into funcionario(idfuncionario, nome, cpf, salario,email, telefone, idendereco, iddepartamento)
+values(5,'Marília Canela Zambujal',66223532717,2400,'j.a.y.l.an.b.r.a.y158@gmail.com',1237361883,200004,101);
+
+insert into gerente(idfuncionario)
+values(5);
+
+update departamento
+set idgerente = 5
+where iddepartamento = 101;
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(200006,'Rua Pereira Estéfano',04144070, 'Vila da Saúde 231  apt 81', 'SP');
+
+insert into funcionario(idfuncionario, nome, cpf, salario,email, telefone, idendereco, iddepartamento)
+values(7,'Ariela Severiano Simões',05283914100,2000,'este.b.a.nmi.ll.s.114@gmail.com',1324567135,200006,101);
+
+insert into tecnico(idfuncionario)
+values(7);
+
+insert into especialidade(idespecialidade,idfuncionario,especialidade)
+values(1,7,'tecnico de software');
+
+insert into servico(status,preco,tipo,datapedido,idtecnico)
+values('p',150,'upgrade de software de processador','10/02/2022',7);
+
+insert into produto(vendido, dataadquirida, datavendida,valor, devolvido, categoria, idfornecedor)
+values(true,'20/06/2022','15/08/2022',14.49,false,'mouse',100);
+
+insert into produto(vendido, dataadquirida, datavendida,valor, devolvido, categoria, idfornecedor)
+values(true,'20/06/2022','13/08/2022',14.49,false,'mouse',100);
+
+insert into produto(vendido, dataadquirida, datavendida,valor, devolvido, categoria, idfornecedor)
+values(true,'20/06/2022','12/08/2022',14.49,false,'mouse',100);
+
+insert into produto(vendido, dataadquirida, datavendida,valor, devolvido, categoria, idfornecedor)
+values(true,'20/06/2022','12/08/2022',200.99,false,'teclados mecânicos',100);
+
+insert into produto(vendido, dataadquirida, datavendida,valor, devolvido, categoria, idfornecedor)
+values(true,'20/06/2022','12/08/2022',250.99,false,'teclados mecânicos',100);
+
+insert into produto(vendido, dataadquirida, datavendida,valor, devolvido, categoria, idfornecedor)
+values(true,'20/06/2022','30/08/2022',250.99,true,'teclados mecânicos',100);
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(9003,'Rua Barão de Vitória', 09961660, 'Casa Grande 31', 'SP');
+
+INSERT into fornecedores(idfornecedor,nome,tipoproduto,idendereco)
+VALUES(110,'CoolMaster','hardware', 9003);
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(9004,'Rua Frederico Moura', 04025021, 'Cidade Nova 551', 'SP');
+
+INSERT into fornecedores(idfornecedor,nome,tipoproduto,idendereco)
+VALUES(120,'DMA','hardware', 9004);
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(9005,'Praça da República', 01045001, 'República 160', 'SP');
+
+INSERT into fornecedores(idfornecedor,nome,tipoproduto,idendereco)
+VALUES(130,'ColdGears','hardware', 9005);
+
+insert into endereco(idendereco, rua, cep, complemento, estado)
+values(9006,'Rua Paracatu', 13216000, 'Parque Imperial 60', 'SP');
+
+INSERT into fornecedores(idfornecedor,nome,tipoproduto,idendereco)
+VALUES(140,'Korsar','perifericos', 9006);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2017-02-02', '2017-06-04', 2999.89, FALSE, 'hardware', 130);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2017-12-02', '2018-01-25', 1199.99, FALSE, 'hardware', 110);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2018-06-01', '2018-06-14', 590.49, TRUE, 'periferico', 140);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES ( FALSE, '2021-04-12', 1790.49, DEFAULT, 'hardware', 130);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES ( FALSE, '2022-01-18', 1099.99, DEFAULT, 'hardware', 120);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES (FALSE, '2022-01-19', 120.49, DEFAULT, 'periferico', 100);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES (FALSE, '2022-03-18', 519.29, DEFAULT, 'hardware', 120);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES (FALSE, '2022-03-18', 819.89, DEFAULT, 'hardware', 120);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES (FALSE, '2022-03-18', 210.69, DEFAULT, 'hardware', 120);
+
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES ( FALSE, '2022-03-18', 109.39, DEFAULT, 'hardware', 120);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES (FALSE, '2022-03-18', 189.99, DEFAULT, 'periferico', 100);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES ( FALSE, '2022-03-18', 59.69, DEFAULT, 'periferico', 100);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES (FALSE, '2022-03-18', 79.69, DEFAULT, 'periferico', 100);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES ( FALSE, '2022-03-18', 1599.89, DEFAULT, 'periferico', 100);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES (FALSE, '2022-03-18', 7809.69, DEFAULT, 'periferico', 100);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES (FALSE, '2022-01-29', 69.99, DEFAULT, 'periferico', 140);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES (FALSE, '2022-01-29', 31.49, DEFAULT, 'periferico', 140);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES (FALSE, '2022-01-29', 54.89, DEFAULT, 'periferico', 140);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES (FALSE, '2022-01-29', 120.69, DEFAULT, 'periferico', 140);
+
+INSERT into produto(vendido, dataadquirida, valor, devolvido, categoria, idfornecedor)
+VALUES (FALSE, '2022-01-29', 189.59, DEFAULT, 'periferico', 140);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2017-12-02', '2018-02-07', 1999.99, FALSE, 'hardware', 110);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2017-12-02', '2018-01-08', 10199.99, FALSE, 'hardware', 110);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2017-12-02', '2018-01-09', 293.98, FALSE, 'hardware', 110);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2017-12-02', '2018-01-09', 296.95, FALSE, 'hardware', 110);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2017-12-02', '2018-01-12', 112.39, FALSE, 'hardware', 110);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2017-12-02', '2018-02-23', 1198.99, FALSE, 'hardware', 110);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2017-12-02', '2018-01-27', 1194.99, FALSE, 'hardware', 110);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2017-12-02', '2018-01-30', 2699.99, TRUE, 'hardware', 110);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2017-12-02', '2018-01-01', 7659.99, FALSE, 'hardware', 110);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2019-06-13', '2018-01-25', 3199.99, FALSE, 'hardware', 110);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2019-06-13', '2018-01-21', 699.99, FALSE, 'hardware', 110);
+
+INSERT into produto(vendido, dataadquirida, datavendida, valor, devolvido, categoria, idfornecedor)
+VALUES (TRUE, '2019-06-13', '2018-01-24', 1199.99, TRUE, 'hardware', 110);
+
+INSERT into servico(status,preco,tipo,datapedido,idtecnico)
+VALUES ('T',120.00,'Limpeza','2020-02-09',7);
+
+INSERT into servico(status,preco,tipo,datapedido,idtecnico)
+VALUES ('T',130.00,'Limpeza','2020-02-10',7);
+
+
+INSERT into servico(status,preco,tipo,datapedido,idtecnico)
+VALUES ('T',60.00,'Limpeza','2020-02-10',7);
+
+INSERT into servico(status,preco,tipo,datapedido,idtecnico)
+VALUES ('T',150.00,'Limpeza','2020-02-11',7);
+
+INSERT into servico(status,preco,tipo,datapedido,idtecnico)
+VALUES ('T',140.00,'Limpeza','2020-02-12',7);
+
+INSERT into servico(status,preco,tipo,datapedido,idtecnico)
+VALUES ('T',659.00,'Assistencia','2020-02-12',7);
+
+INSERT into servico(status,preco,tipo,datapedido,idtecnico)
+VALUES ('T',90.00,'Limpeza','2020-02-14',7);
+
+INSERT into servico(status,preco,tipo,datapedido,idtecnico)
+VALUES ('T',89.00,'Assistencia','2020-02-19',7);
+
+INSERT into servico(status,preco,tipo,datapedido,idtecnico)
+VALUES ('T',120.00,'Limpeza','2020-02-21',7);
+
+INSERT into servico(status,preco,tipo,datapedido,idtecnico)
+VALUES ('T',120.00,'Limpeza','2020-03-11',7);
+
+INSERT into servico(status,preco,tipo,datapedido,idtecnico)
+VALUES ('T',120.00,'Limpeza','2020-02-09',7);
+
+INSERT into servico(status,preco,tipo,datapedido,idtecnico)
+VALUES ('A',200.00,'Assistencia','2022-04-14',7);
+
+INSERT into servico(status,preco,tipo,datapedido,idtecnico)
+VALUES ('A',600.00,'Montagem','2022-04-15',7);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(1,19.99,1,1);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(2,19.99,1,2);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(3,19.99,12,3);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(3,200.99,1,4);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(1,259.99,12,5);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(4,259.99,1,6);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(5,2999.89,6,7);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(5,1199.99,2,8);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(6,590.49,2,9);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(7,1999.99,1,27);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(8,10199.99,1,28);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(9,293.98,1,29);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(15,296.95,12,30);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(1,112.39,1,31);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(7,1198.99,10,32);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(11,1194.99,2,33);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(11,2699.99,6,34);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(10,7659.99,1,35);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(2,3199.99,1,36);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(8,699.99,24,37);
+
+Insert into historico(idcliente,valorpago,parcelas,idproduto)
+values(18,1199.99,2,38);
+
+
+Insert into historico(idcliente,valorpago,parcelas,idservico)
+values(16,150.00,1,1);
+
+Insert into historico(idcliente,valorpago,parcelas,idservico)
+values(15,120.00,1,2);
+
+Insert into historico(idcliente,valorpago,parcelas,idservico)
+values(13,130.00,1,3);
+
+Insert into historico(idcliente,valorpago,parcelas,idservico)
+values(16,60.00,1,4);
+
+Insert into historico(idcliente,valorpago,parcelas,idservico)
+values(11,150.00,1,5);
+
+Insert into historico(idcliente,valorpago,parcelas,idservico)
+values(10,140.00,1,6);
+
+Insert into historico(idcliente,valorpago,parcelas,idservico)
+values(6,659.00,1,7);
+
+Insert into historico(idcliente,valorpago,parcelas,idservico)
+values(2,90.00,1,8);
+
+Insert into historico(idcliente,valorpago,parcelas,idservico)
+values(2,89.00,1,9);
+
+Insert into historico(idcliente,valorpago,parcelas,idservico)
+values(7,120.00,1,10);
+
+Insert into historico(idcliente,valorpago,parcelas,idservico)
+values(16,120.00,1,11);
+
+Insert into historico(idcliente,valorpago,parcelas,idservico)
+values(9,150.00,1,12);
+
+Insert into historico(idcliente,valorpago,parcelas,idservico)
+values(11,200.00,1,13);
+
+Insert into historico(idcliente,valorpago,parcelas,idservico)
+values(10,600.00,12,1);

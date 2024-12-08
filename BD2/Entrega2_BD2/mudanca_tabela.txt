@@ -1,0 +1,8 @@
+--mudanca
+ALTER TABLE Historico drop CONSTRAINT FK_Produto_2;
+
+
+ALTER TABLE Historico ADD CONSTRAINT FK_Produto_2
+    FOREIGN KEY (idproduto)
+    REFERENCES Produto (idProduto)
+    ON DELETE NO ACTION;
